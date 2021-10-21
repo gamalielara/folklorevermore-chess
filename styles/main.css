@@ -1,0 +1,285 @@
+/* THE PAWN CHECKERS BY GAMALIEL BOANERGES */
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+DW+Pica&family=IM+Fell+English:ital@0;1&display=swap');
+
+*{font-family: IM Fell English, serif}
+
+body{
+    max-height: 90vh;
+    margin: 0;
+    background-image: url(../assets/bg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+h1, h2, h3, p{color: white;}
+
+.container-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container{
+    margin: 10px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+}
+
+header{margin-top: 5px;}
+
+header h1{
+    font-size: 2vmax;
+    font-weight: 175;
+    margin: 0;
+}
+
+h2{
+    font-size: 1vmax;
+    font-weight: 100;
+}
+
+.board-card{
+    width: 400px;
+    height: 400px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    background-color: whitesmoke;
+    padding: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.the-board{
+    display: flex;
+    flex-direction: column;
+}
+
+.row {display: flex;}
+
+.col{
+    width: 50px;
+    height: 50px;
+    /* border: 1px solid black;  */
+}
+
+footer p{font-size: 1.25vmax;}
+
+.col > .piece {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.piece > img {
+    height: 100%;
+    width: 100%;
+}
+
+.col > .possible-move{
+    height: 100%;
+    width: 100%;
+}
+
+.to-move-pieces:hover{
+    background-color: #FCEFC1;
+    cursor: pointer;
+} 
+
+footer{
+    margin-bottom: 10px;
+}
+
+.container h3{
+    margin: 20px 0 0 0;
+    font-weight: 100;
+    font-size: 1.75vmax;
+}
+
+.to-turn{
+    transition: background-color .3s;
+}
+
+.to-turn:hover{
+    cursor: pointer;
+    background-color: #FCF2AA;
+}
+
+.enemy-highlight{
+    background-color: #ED7272 !important;
+    cursor: pointer;
+}
+
+.highlight{
+    background-color: #FCF2AA !important;
+    opacity: .5;
+    cursor: pointer;
+}
+
+.white{background-color: #D4D4D4;}
+
+.gray{background-color: #989898;}
+
+.piece-clicked{
+    cursor: pointer;
+    background-color: #FFF082;
+}
+
+.possible-move{
+    background-color: #FCF2AA;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.enemy-to-capture{
+    background-color: #FF6464;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.col > div {
+    width: 100%;
+    height: 100%;
+}
+
+#undo-move, #reset-game, #close-dialog{
+    display: inline-block;
+    font-size: 1.25vmax;
+    background-color: #3f3f3f;
+    color: white;
+    padding: 0.5em;
+    height: auto;
+    margin: 10px 10px;
+    border-radius: 2px;
+    transition: color .75s;
+    text-align: center;
+    width: 100%;
+}
+
+.buttons {
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+#undo-move:hover, #reset-game:hover, #close-dialog:hover{
+    cursor: pointer;
+    background-color: #C3C3C3;
+    color: #3f3f3f;
+}
+
+.alert-full-page{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.background-black{
+    background-color: #000;
+    opacity: .5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+}
+
+.alert-full-page .dialog-box{
+    width: 30%;
+    height: 20%;
+    z-index: 99;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.75s ease;
+}
+
+.alert-full-page .player-info, .player-gameover{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    height: fit-content;
+    text-align: center;
+}
+
+.alert-full-page .dialog-box p{
+    color: black;
+    font-size: 1.5vmax;
+}
+
+@media (max-width: 1000px){
+    .container{width: 75%;}
+
+    .container h3 {
+        font-size: 2.5vmax;
+    }
+
+    #undo-move, #reset-game {
+        font-size: 2vmax;
+    }
+
+    footer p {
+        font-size: 2vmax;
+    }
+
+    header h1 {
+        font-size: 3vmax;
+    }
+
+    h2 {
+        font-size: 2vmax;
+    }
+}
+
+@media (max-width: 650px){
+    .alert-full-page .player-info, .player-gameover {
+        width: 70vw !important;
+    }
+    .alert-full-page .dialog-box p {
+        font-size: 2vmax !important;
+    }
+}
+
+@media (max-width: 500px){
+    .board-card{
+        width: 90vw;
+        height: fit-content;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    h1{font-size: 4vmax;}
+
+    h2{font-size: 2vmax;}
+
+    .container h3{font-size: 3vmax;}
+
+    .the-board{
+        width: 100%;
+        height: 100%;
+    }
+
+    .col{
+        width: calc(90vw / 8);
+        height: calc(90vw / 8);
+    }
+
+    .piece > img {
+        width: 100%;
+        height: 100%;
+    }
+}
